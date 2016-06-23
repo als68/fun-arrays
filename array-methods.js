@@ -30,6 +30,14 @@ hundredThousandairs = newDataset.filter(bankBalancesOver);
 */
 var roundedDollar = null;
 
+function roundAccts(element, index, array){
+  element.rounded = Math.round(element.amount);
+}
+
+newDataset.map(roundAccts);
+roundedDollar = newDataset;
+
+
 /*
   set a the `amount` value for each object in bankBalances
   to the value of `amount` rounded to the nearest 10 cents
@@ -41,6 +49,20 @@ var roundedDollar = null;
   assign the resulting array to `roundedDime`
 */
 var roundedDime = null;
+
+function roundingToDime(element, index, array){
+
+  //element.amount = Math.round(element.amount * 10)/10;
+  console.log(element.amount);
+  return {
+    state: element.state,
+    amount: Math.round(element.amount * 10)/10
+  };
+}
+
+var roundedDime = newDataset.map(roundingToDime);
+console.log(newDataset);
+
 
 // set sumOfBankBalances to the sum of all amounts in bankBalances
 var sumOfBankBalances = null;
